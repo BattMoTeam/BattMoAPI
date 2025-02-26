@@ -1,7 +1,7 @@
 services:
 
   api:
-    image: ghcr.io/battmoteam/battmoapp_api:latest
+    image: ghcr.io/battmoteam/battmo_api:latest
     build:
       context: .
       dockerfile: Dockerfile

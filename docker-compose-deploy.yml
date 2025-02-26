@@ -1,0 +1,21 @@
+services:
+
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: battmo_api
+    restart: always
+    ports:
+      - "8081:8081"
+      - "8080:8082"
+    volumes:
+      - ./scripts:/api/scripts
+      - ./api.jl:/api/api.jl
+      - ./logs:/api/logs
+      - ./input_files:/api/input_files
+      - ./results:/api/results
+    # command: julia --project=. -e 'include("api.jl")' --color=yes --depwarn=no --project=@. --sysimage="pre-compilation/sysimage.so" -q -i -- $$(dirname $$0)/../bootstrap.jl -s=true "$$@"
+
+    command: julia --project=. -e 'include("api.jl")'

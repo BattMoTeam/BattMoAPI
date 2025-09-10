@@ -1,2 +1,552 @@
-Received JSON input data with id: cdba6e1f-0594-43ec-a44e-9c8c760952bc
-Received JSON input data with id: cdba6e1f-0594-43ec-a44e-9c8c760952bc
+Received JSON data with id: 123e4567-e89b-12d3-a456-426614174000
+Starting test simulation for client: 123e4567-e89b-12d3-a456-426614174000
+✔️ Validation of ModelSettings passed: No issues found.
+──────────────────────────────────────────────────
+✔️ Validation of CellParameters passed: No issues found.
+──────────────────────────────────────────────────
+✔️ Validation of CyclingProtocol passed: No issues found.
+──────────────────────────────────────────────────
+✔️ Validation of SimulationSettings passed: No issues found.
+──────────────────────────────────────────────────
+✔️ Validation of SolverSettings passed: No issues found.
+──────────────────────────────────────────────────
+Jutul: Simulating 2 hours, 12 minutes as 163 report steps
+Progress   1%|▌                                          |  ETA: 0:25:38[K
+   Progress: Solving step 2/163 (0.06% of time interval complete)[K
+      Stats: 3 iterations in 18.53 s (6.18 s each)[K[A[A
+
+[K[A[K[AProgress   2%|▊                                          |  ETA: 0:18:16[K
+   Progress: Solving step 3/163 (0.14% of time interval complete)[K
+      Stats: 7 iterations in 19.89 s (2.84 s each)[K[A[A
+
+[K[A[K[AProgress   2%|█                                          |  ETA: 0:14:43[K
+   Progress: Solving step 4/163 (0.30% of time interval complete)[K
+      Stats: 12 iterations in 21.53 s (1.79 s each)[K[A[A
+
+[K[A[K[AProgress   3%|█▎                                         |  ETA: 0:12:14[K
+   Progress: Solving step 5/163 (0.61% of time interval complete)[K
+      Stats: 15 iterations in 22.55 s (1.50 s each)[K[A[A
+
+[K[A[K[AProgress   4%|█▋                                         |  ETA: 0:10:36[K
+   Progress: Solving step 6/163 (1.24% of time interval complete)[K
+      Stats: 18 iterations in 23.61 s (1.31 s each)[K[A[A
+
+[K[A[K[AProgress   4%|█▉                                         |  ETA: 0:09:27[K
+   Progress: Solving step 7/163 (1.87% of time interval complete)[K
+      Stats: 21 iterations in 24.74 s (1.18 s each)[K[A[A
+
+[K[A[K[AProgress   5%|██▏                                        |  ETA: 0:08:36[K
+   Progress: Solving step 8/163 (2.51% of time interval complete)[K
+      Stats: 24 iterations in 25.94 s (1.08 s each)[K[A[A
+
+[K[A[K[AProgress   5%|██▍                                        |  ETA: 0:07:55[K
+   Progress: Solving step 9/163 (3.14% of time interval complete)[K
+      Stats: 27 iterations in 27.03 s (1.00 s each)[K[A[A
+
+[K[A[K[AProgress   6%|██▋                                        |  ETA: 0:07:21[K
+   Progress: Solving step 10/163 (3.77% of time interval complete)[K
+      Stats: 30 iterations in 28.07 s (935.75 ms each)[K[A[A
+
+[K[A[K[AProgress   7%|██▉                                        |  ETA: 0:06:52[K
+   Progress: Solving step 11/163 (4.40% of time interval complete)[K
+      Stats: 33 iterations in 29.05 s (880.36 ms each)[K[A[A
+
+[K[A[K[AProgress   7%|███▏                                       |  ETA: 0:06:28[K
+   Progress: Solving step 12/163 (5.03% of time interval complete)[K
+      Stats: 36 iterations in 30.10 s (836.09 ms each)[K[A[A
+
+[K[A[K[AProgress   8%|███▍                                       |  ETA: 0:06:09[K
+   Progress: Solving step 13/163 (5.66% of time interval complete)[K
+      Stats: 39 iterations in 31.21 s (800.17 ms each)[K[A[A
+
+[K[A[K[AProgress   9%|███▋                                       |  ETA: 0:05:52[K
+   Progress: Solving step 14/163 (6.29% of time interval complete)[K
+      Stats: 42 iterations in 32.34 s (770.10 ms each)[K[A[A
+
+[K[A[K[AProgress   9%|███▉                                       |  ETA: 0:05:38[K
+   Progress: Solving step 15/163 (6.92% of time interval complete)[K
+      Stats: 45 iterations in 33.48 s (743.96 ms each)[K[A[A
+
+[K[A[K[AProgress  10%|████▎                                      |  ETA: 0:05:25[K
+   Progress: Solving step 16/163 (7.56% of time interval complete)[K
+      Stats: 48 iterations in 34.58 s (720.33 ms each)[K[A[A
+
+[K[A[K[AProgress  10%|████▌                                      |  ETA: 0:05:16[K
+   Progress: Solving step 17/163 (8.19% of time interval complete)[K
+      Stats: 51 iterations in 35.97 s (705.23 ms each)[K[A[A
+
+[K[A[K[AProgress  11%|████▊                                      |  ETA: 0:05:03[K
+   Progress: Solving step 18/163 (8.82% of time interval complete)[K
+      Stats: 53 iterations in 36.75 s (693.40 ms each)[K[A[A
+
+[K[A[K[AProgress  12%|█████                                      |  ETA: 0:04:51[K
+   Progress: Solving step 19/163 (9.45% of time interval complete)[K
+      Stats: 55 iterations in 37.55 s (682.68 ms each)[K[A[A
+
+[K[A[K[AProgress  12%|█████▎                                     |  ETA: 0:04:40[K
+   Progress: Solving step 20/163 (10.08% of time interval complete)[K
+      Stats: 57 iterations in 38.33 s (672.44 ms each)[K[A[A
+
+[K[A[K[AProgress  13%|█████▌                                     |  ETA: 0:04:30[K
+   Progress: Solving step 21/163 (10.71% of time interval complete)[K
+      Stats: 59 iterations in 39.09 s (662.46 ms each)[K[A[A
+
+[K[A[K[AProgress  13%|█████▊                                     |  ETA: 0:04:21[K
+   Progress: Solving step 22/163 (11.34% of time interval complete)[K
+      Stats: 61 iterations in 39.87 s (653.58 ms each)[K[A[A
+
+[K[A[K[AProgress  14%|██████                                     |  ETA: 0:04:13[K
+   Progress: Solving step 23/163 (11.98% of time interval complete)[K
+      Stats: 63 iterations in 40.69 s (645.84 ms each)[K[A[A
+
+[K[A[K[AProgress  15%|██████▎                                    |  ETA: 0:04:05[K
+   Progress: Solving step 24/163 (12.61% of time interval complete)[K
+      Stats: 65 iterations in 41.51 s (638.62 ms each)[K[A[A
+
+[K[A[K[AProgress  15%|██████▌                                    |  ETA: 0:03:59[K
+   Progress: Solving step 25/163 (13.24% of time interval complete)[K
+      Stats: 67 iterations in 42.29 s (631.22 ms each)[K[A[A
+
+[K[A[K[AProgress  16%|██████▉                                    |  ETA: 0:03:52[K
+   Progress: Solving step 26/163 (13.87% of time interval complete)[K
+      Stats: 69 iterations in 43.10 s (624.62 ms each)[K[A[A
+
+[K[A[K[AProgress  16%|███████▏                                   |  ETA: 0:03:46[K
+   Progress: Solving step 27/163 (14.50% of time interval complete)[K
+      Stats: 71 iterations in 43.90 s (618.25 ms each)[K[A[A
+
+[K[A[K[AProgress  17%|███████▍                                   |  ETA: 0:03:40[K
+   Progress: Solving step 28/163 (15.13% of time interval complete)[K
+      Stats: 73 iterations in 44.67 s (611.90 ms each)[K[A[A
+
+[K[A[K[AProgress  18%|███████▋                                   |  ETA: 0:03:35[K
+   Progress: Solving step 29/163 (15.76% of time interval complete)[K
+      Stats: 75 iterations in 45.45 s (606.03 ms each)[K[A[A
+
+[K[A[K[AProgress  18%|███████▉                                   |  ETA: 0:03:29[K
+   Progress: Solving step 30/163 (16.39% of time interval complete)[K
+      Stats: 77 iterations in 46.22 s (600.21 ms each)[K[A[A
+
+[K[A[K[AProgress  19%|████████▏                                  |  ETA: 0:03:25[K
+   Progress: Solving step 31/163 (17.03% of time interval complete)[K
+      Stats: 79 iterations in 47.05 s (595.52 ms each)[K[A[A
+
+[K[A[K[AProgress  20%|████████▍                                  |  ETA: 0:03:20[K
+   Progress: Solving step 32/163 (17.66% of time interval complete)[K
+      Stats: 81 iterations in 47.90 s (591.34 ms each)[K[A[A
+
+[K[A[K[AProgress  20%|████████▋                                  |  ETA: 0:03:16[K
+   Progress: Solving step 33/163 (18.29% of time interval complete)[K
+      Stats: 83 iterations in 48.71 s (586.91 ms each)[K[A[A
+
+[K[A[K[AProgress  21%|████████▉                                  |  ETA: 0:03:12[K
+   Progress: Solving step 34/163 (18.92% of time interval complete)[K
+      Stats: 85 iterations in 49.56 s (583.01 ms each)[K[A[A
+
+[K[A[K[AProgress  21%|█████████▏                                 |  ETA: 0:03:08[K
+   Progress: Solving step 35/163 (19.55% of time interval complete)[K
+      Stats: 87 iterations in 50.29 s (578.03 ms each)[K[A[A
+
+[K[A[K[AProgress  22%|█████████▌                                 |  ETA: 0:03:04[K
+   Progress: Solving step 36/163 (20.18% of time interval complete)[K
+      Stats: 89 iterations in 51.00 s (573.03 ms each)[K[A[A
+
+[K[A[K[AProgress  23%|█████████▊                                 |  ETA: 0:03:00[K
+   Progress: Solving step 37/163 (20.81% of time interval complete)[K
+      Stats: 91 iterations in 51.77 s (568.85 ms each)[K[A[A
+
+[K[A[K[AProgress  23%|██████████                                 |  ETA: 0:02:56[K
+   Progress: Solving step 38/163 (21.44% of time interval complete)[K
+      Stats: 93 iterations in 52.49 s (564.45 ms each)[K[A[A
+
+[K[A[K[AProgress  24%|██████████▎                                |  ETA: 0:02:53[K
+   Progress: Solving step 39/163 (22.08% of time interval complete)[K
+      Stats: 95 iterations in 53.20 s (560.02 ms each)[K[A[A
+
+[K[A[K[AProgress  24%|██████████▌                                |  ETA: 0:02:49[K
+   Progress: Solving step 40/163 (22.71% of time interval complete)[K
+      Stats: 97 iterations in 53.96 s (556.32 ms each)[K[A[A
+
+[K[A[K[AProgress  25%|██████████▊                                |  ETA: 0:02:46[K
+   Progress: Solving step 41/163 (23.34% of time interval complete)[K
+      Stats: 99 iterations in 54.67 s (552.22 ms each)[K[A[A
+
+[K[A[K[AProgress  26%|███████████                                |  ETA: 0:02:43[K
+   Progress: Solving step 42/163 (23.97% of time interval complete)[K
+      Stats: 101 iterations in 55.38 s (548.33 ms each)[K[A[A
+
+[K[A[K[AProgress  26%|███████████▎                               |  ETA: 0:02:40[K
+   Progress: Solving step 43/163 (24.60% of time interval complete)[K
+      Stats: 103 iterations in 56.13 s (544.92 ms each)[K[A[A
+
+[K[A[K[AProgress  27%|███████████▌                               |  ETA: 0:02:37[K
+   Progress: Solving step 44/163 (25.23% of time interval complete)[K
+      Stats: 105 iterations in 56.87 s (541.60 ms each)[K[A[A
+
+[K[A[K[AProgress  27%|███████████▊                               |  ETA: 0:02:34[K
+   Progress: Solving step 45/163 (25.86% of time interval complete)[K
+      Stats: 107 iterations in 57.60 s (538.29 ms each)[K[A[A
+
+[K[A[K[AProgress  28%|████████████                               |  ETA: 0:02:31[K
+   Progress: Solving step 46/163 (26.50% of time interval complete)[K
+      Stats: 109 iterations in 58.33 s (535.15 ms each)[K[A[A
+
+[K[A[K[AProgress  29%|████████████▍                              |  ETA: 0:02:29[K
+   Progress: Solving step 47/163 (27.13% of time interval complete)[K
+      Stats: 111 iterations in 59.08 s (532.21 ms each)[K[A[A
+
+[K[A[K[AProgress  29%|████████████▋                              |  ETA: 0:02:26[K
+   Progress: Solving step 48/163 (27.76% of time interval complete)[K
+      Stats: 113 iterations in 59.81 s (529.26 ms each)[K[A[A
+
+[K[A[K[AProgress  30%|████████████▉                              |  ETA: 0:02:24[K
+   Progress: Solving step 49/163 (28.39% of time interval complete)[K
+      Stats: 115 iterations in 60.59 s (526.85 ms each)[K[A[A
+
+[K[A[K[AProgress  30%|█████████████▏                             |  ETA: 0:02:21[K
+   Progress: Solving step 50/163 (29.02% of time interval complete)[K
+      Stats: 117 iterations in 61.32 s (524.10 ms each)[K[A[A
+
+[K[A[K[AProgress  31%|█████████████▍                             |  ETA: 0:02:19[K
+   Progress: Solving step 51/163 (29.65% of time interval complete)[K
+      Stats: 119 iterations in 62.08 s (521.71 ms each)[K[A[A
+
+[K[A[K[AProgress  32%|█████████████▋                             |  ETA: 0:02:17[K
+   Progress: Solving step 52/163 (30.28% of time interval complete)[K
+      Stats: 121 iterations in 62.80 s (519.03 ms each)[K[A[A
+
+[K[A[K[AProgress  32%|█████████████▉                             |  ETA: 0:02:14[K
+   Progress: Solving step 53/163 (30.91% of time interval complete)[K
+      Stats: 123 iterations in 63.53 s (516.49 ms each)[K[A[A
+
+[K[A[K[AProgress  33%|██████████████▏                            |  ETA: 0:02:12[K
+   Progress: Solving step 54/163 (31.55% of time interval complete)[K
+      Stats: 125 iterations in 64.29 s (514.28 ms each)[K[A[A
+
+[K[A[K[AProgress  34%|██████████████▍                            |  ETA: 0:02:10[K
+   Progress: Solving step 55/163 (32.18% of time interval complete)[K
+      Stats: 127 iterations in 65.05 s (512.22 ms each)[K[A[A
+
+[K[A[K[AProgress  34%|██████████████▋                            |  ETA: 0:02:08[K
+   Progress: Solving step 56/163 (32.81% of time interval complete)[K
+      Stats: 129 iterations in 65.84 s (510.42 ms each)[K[A[A
+
+[K[A[K[AProgress  35%|███████████████                            |  ETA: 0:02:06[K
+   Progress: Solving step 57/163 (33.44% of time interval complete)[K
+      Stats: 131 iterations in 66.70 s (509.20 ms each)[K[A[A
+
+[K[A[K[AProgress  35%|███████████████▎                           |  ETA: 0:02:05[K
+   Progress: Solving step 58/163 (34.07% of time interval complete)[K
+      Stats: 133 iterations in 67.51 s (507.56 ms each)[K[A[A
+
+[K[A[K[AProgress  36%|███████████████▌                           |  ETA: 0:02:03[K
+   Progress: Solving step 59/163 (34.70% of time interval complete)[K
+      Stats: 135 iterations in 68.29 s (505.89 ms each)[K[A[A
+
+[K[A[K[AProgress  37%|███████████████▊                           |  ETA: 0:02:01[K
+   Progress: Solving step 60/163 (35.33% of time interval complete)[K
+      Stats: 137 iterations in 69.08 s (504.24 ms each)[K[A[A
+
+[K[A[K[AProgress  37%|████████████████                           |  ETA: 0:01:59[K
+   Progress: Solving step 61/163 (35.97% of time interval complete)[K
+      Stats: 139 iterations in 69.93 s (503.06 ms each)[K[A[A
+
+[K[A[K[AProgress  38%|████████████████▎                          |  ETA: 0:01:58[K
+   Progress: Solving step 62/163 (36.60% of time interval complete)[K
+      Stats: 141 iterations in 70.76 s (501.82 ms each)[K[A[A
+
+[K[A[K[AProgress  38%|████████████████▌                          |  ETA: 0:01:56[K
+   Progress: Solving step 63/163 (37.23% of time interval complete)[K
+      Stats: 143 iterations in 71.56 s (500.42 ms each)[K[A[A
+
+[K[A[K[AProgress  39%|████████████████▊                          |  ETA: 0:01:54[K
+   Progress: Solving step 64/163 (37.86% of time interval complete)[K
+      Stats: 145 iterations in 72.36 s (499.06 ms each)[K[A[A
+
+[K[A[K[AProgress  40%|█████████████████                          |  ETA: 0:01:52[K
+   Progress: Solving step 65/163 (38.49% of time interval complete)[K
+      Stats: 147 iterations in 73.15 s (497.61 ms each)[K[A[A
+
+[K[A[K[AProgress  40%|█████████████████▎                         |  ETA: 0:01:51[K
+   Progress: Solving step 66/163 (39.12% of time interval complete)[K
+      Stats: 149 iterations in 74.05 s (496.99 ms each)[K[A[A
+
+[K[A[K[AProgress  41%|█████████████████▋                         |  ETA: 0:01:49[K
+   Progress: Solving step 67/163 (39.75% of time interval complete)[K
+      Stats: 151 iterations in 74.95 s (496.33 ms each)[K[A[A
+
+[K[A[K[AProgress  41%|█████████████████▉                         |  ETA: 0:01:48[K
+   Progress: Solving step 68/163 (40.38% of time interval complete)[K
+      Stats: 153 iterations in 75.70 s (494.77 ms each)[K[A[A
+
+[K[A[K[AProgress  42%|██████████████████▏                        |  ETA: 0:01:46[K
+   Progress: Solving step 69/163 (41.02% of time interval complete)[K
+      Stats: 155 iterations in 76.47 s (493.33 ms each)[K[A[A
+
+[K[A[K[AProgress  43%|██████████████████▍                        |  ETA: 0:01:45[K
+   Progress: Solving step 70/163 (41.65% of time interval complete)[K
+      Stats: 157 iterations in 77.30 s (492.35 ms each)[K[A[A
+
+[K[A[K[AProgress  43%|██████████████████▋                        |  ETA: 0:01:43[K
+   Progress: Solving step 71/163 (42.28% of time interval complete)[K
+      Stats: 159 iterations in 78.10 s (491.18 ms each)[K[A[A
+
+[K[A[K[AProgress  44%|██████████████████▉                        |  ETA: 0:01:42[K
+   Progress: Solving step 72/163 (42.91% of time interval complete)[K
+      Stats: 161 iterations in 78.85 s (489.74 ms each)[K[A[A
+
+[K[A[K[AProgress  45%|███████████████████▏                       |  ETA: 0:01:40[K
+   Progress: Solving step 73/163 (43.54% of time interval complete)[K
+      Stats: 163 iterations in 79.59 s (488.29 ms each)[K[A[A
+
+[K[A[K[AProgress  45%|███████████████████▍                       |  ETA: 0:01:39[K
+   Progress: Solving step 74/163 (44.17% of time interval complete)[K
+      Stats: 165 iterations in 80.37 s (487.06 ms each)[K[A[A
+
+[K[A[K[AProgress  46%|███████████████████▋                       |  ETA: 0:01:37[K
+   Progress: Solving step 75/163 (44.80% of time interval complete)[K
+      Stats: 167 iterations in 81.13 s (485.84 ms each)[K[A[A
+
+[K[A[K[AProgress  46%|███████████████████▉                       |  ETA: 0:01:36[K
+   Progress: Solving step 76/163 (45.43% of time interval complete)[K
+      Stats: 169 iterations in 82.25 s (486.71 ms each)[K[A[A
+
+[K[A[K[AProgress  47%|████████████████████▎                      |  ETA: 0:01:35[K
+   Progress: Solving step 77/163 (46.07% of time interval complete)[K
+      Stats: 171 iterations in 83.04 s (485.64 ms each)[K[A[A
+
+[K[A[K[AProgress  48%|████████████████████▌                      |  ETA: 0:01:33[K
+   Progress: Solving step 78/163 (46.70% of time interval complete)[K
+      Stats: 173 iterations in 83.83 s (484.54 ms each)[K[A[A
+
+[K[A[K[AProgress  48%|████████████████████▊                      |  ETA: 0:01:32[K
+   Progress: Solving step 79/163 (47.33% of time interval complete)[K
+      Stats: 175 iterations in 84.57 s (483.26 ms each)[K[A[A
+
+[K[A[K[AProgress  49%|█████████████████████                      |  ETA: 0:01:30[K
+   Progress: Solving step 80/163 (47.96% of time interval complete)[K
+      Stats: 177 iterations in 85.33 s (482.09 ms each)[K[A[A
+
+[K[A[K[AProgress  49%|█████████████████████▎                     |  ETA: 0:01:29[K
+   Progress: Solving step 81/163 (48.59% of time interval complete)[K
+      Stats: 179 iterations in 86.10 s (480.99 ms each)[K[A[A
+
+[K[A[K[AProgress  50%|█████████████████████▌                     |  ETA: 0:01:28[K
+   Progress: Solving step 82/163 (49.22% of time interval complete)[K
+      Stats: 181 iterations in 86.86 s (479.91 ms each)[K[A[A
+
+[K[A[K[AProgress  51%|█████████████████████▊                     |  ETA: 0:01:26[K
+   Progress: Solving step 83/163 (49.85% of time interval complete)[K
+      Stats: 183 iterations in 87.66 s (478.99 ms each)[K[A[A
+
+[K[A[K[AProgress  51%|██████████████████████                     |  ETA: 0:01:25[K
+   Progress: Solving step 84/163 (50.49% of time interval complete)[K
+      Stats: 185 iterations in 88.42 s (477.96 ms each)[K[A[A
+
+[K[A[K[AProgress  52%|██████████████████████▎                    |  ETA: 0:01:23[K
+   Progress: Solving step 85/163 (51.12% of time interval complete)[K
+      Stats: 187 iterations in 89.12 s (476.59 ms each)[K[A[A
+
+[K[A[K[AProgress  52%|██████████████████████▌                    |  ETA: 0:01:22[K
+   Progress: Solving step 86/163 (51.75% of time interval complete)[K
+      Stats: 189 iterations in 89.86 s (475.46 ms each)[K[A[A
+
+[K[A[K[AProgress  53%|██████████████████████▊                    |  ETA: 0:01:21[K
+   Progress: Solving step 87/163 (52.38% of time interval complete)[K
+      Stats: 191 iterations in 90.58 s (474.24 ms each)[K[A[A
+
+[K[A[K[AProgress  54%|███████████████████████▏                   |  ETA: 0:01:19[K
+   Progress: Solving step 88/163 (53.01% of time interval complete)[K
+      Stats: 193 iterations in 91.33 s (473.20 ms each)[K[A[A
+
+[K[A[K[AProgress  54%|███████████████████████▍                   |  ETA: 0:01:18[K
+   Progress: Solving step 89/163 (53.64% of time interval complete)[K
+      Stats: 195 iterations in 92.06 s (472.08 ms each)[K[A[A
+
+[K[A[K[AProgress  55%|███████████████████████▋                   |  ETA: 0:01:17[K
+   Progress: Solving step 90/163 (54.27% of time interval complete)[K
+      Stats: 197 iterations in 92.80 s (471.09 ms each)[K[A[A
+
+[K[A[K[AProgress  55%|███████████████████████▉                   |  ETA: 0:01:16[K
+   Progress: Solving step 91/163 (54.90% of time interval complete)[K
+      Stats: 199 iterations in 93.55 s (470.10 ms each)[K[A[A
+
+[K[A[K[AProgress  56%|████████████████████████▏                  |  ETA: 0:01:14[K
+   Progress: Solving step 92/163 (55.54% of time interval complete)[K
+      Stats: 201 iterations in 94.36 s (469.46 ms each)[K[A[A
+
+[K[A[K[AProgress  57%|████████████████████████▍                  |  ETA: 0:01:13[K
+   Progress: Solving step 93/163 (56.17% of time interval complete)[K
+      Stats: 203 iterations in 95.18 s (468.87 ms each)[K[A[A
+
+[K[A[K[AProgress  57%|████████████████████████▋                  |  ETA: 0:01:12[K
+   Progress: Solving step 94/163 (56.80% of time interval complete)[K
+      Stats: 205 iterations in 95.98 s (468.19 ms each)[K[A[A
+
+[K[A[K[AProgress  58%|████████████████████████▉                  |  ETA: 0:01:11[K
+   Progress: Solving step 95/163 (57.43% of time interval complete)[K
+      Stats: 207 iterations in 96.78 s (467.55 ms each)[K[A[A
+
+[K[A[K[AProgress  59%|█████████████████████████▏                 |  ETA: 0:01:10[K
+   Progress: Solving step 96/163 (58.06% of time interval complete)[K
+      Stats: 209 iterations in 97.57 s (466.82 ms each)[K[A[A
+
+[K[A[K[AProgress  59%|█████████████████████████▍                 |  ETA: 0:01:08[K
+   Progress: Solving step 97/163 (58.69% of time interval complete)[K
+      Stats: 211 iterations in 98.36 s (466.16 ms each)[K[A[A
+
+[K[A[K[AProgress  60%|█████████████████████████▊                 |  ETA: 0:01:07[K
+   Progress: Solving step 98/163 (59.32% of time interval complete)[K
+      Stats: 213 iterations in 99.15 s (465.51 ms each)[K[A[A
+
+[K[A[K[AProgress  60%|██████████████████████████                 |  ETA: 0:01:06[K
+   Progress: Solving step 99/163 (59.96% of time interval complete)[K
+      Stats: 215 iterations in 99.92 s (464.76 ms each)[K[A[A
+
+[K[A[K[AProgress  61%|██████████████████████████▎                |  ETA: 0:01:05[K
+   Progress: Solving step 100/163 (60.59% of time interval complete)[K
+      Stats: 217 iterations in 100.69 s (464.01 ms each)[K[A[A
+
+[K[A[K[AProgress  62%|██████████████████████████▌                |  ETA: 0:01:04[K
+   Progress: Solving step 101/163 (61.22% of time interval complete)[K
+      Stats: 219 iterations in 101.45 s (463.24 ms each)[K[A[A
+
+[K[A[K[AProgress  62%|██████████████████████████▊                |  ETA: 0:01:03[K
+   Progress: Solving step 102/163 (61.85% of time interval complete)[K
+      Stats: 221 iterations in 102.21 s (462.47 ms each)[K[A[A
+
+[K[A[K[AProgress  63%|███████████████████████████                |  ETA: 0:01:01[K
+   Progress: Solving step 103/163 (62.48% of time interval complete)[K
+      Stats: 223 iterations in 102.96 s (461.70 ms each)[K[A[A
+
+[K[A[K[AProgress  63%|███████████████████████████▎               |  ETA: 0:01:00[K
+   Progress: Solving step 104/163 (63.11% of time interval complete)[K
+      Stats: 226 iterations in 104.03 s (460.31 ms each)[K[A[A
+
+[K[A[K[AProgress  64%|███████████████████████████▌               |  ETA: 0:00:59[K
+   Progress: Solving step 105/163 (63.74% of time interval complete)[K
+      Stats: 229 iterations in 105.15 s (459.18 ms each)[K[A[A
+
+[K[A[K[AProgress  65%|███████████████████████████▊               |  ETA: 0:00:59[K
+   Progress: Solving step 106/163 (64.37% of time interval complete)[K
+      Stats: 232 iterations in 106.32 s (458.27 ms each)[K[A[A
+
+[K[A[K[AProgress  65%|████████████████████████████               |  ETA: 0:00:58[K
+   Progress: Solving step 107/163 (65.01% of time interval complete)[K
+      Stats: 235 iterations in 107.46 s (457.29 ms each)[K[A[A
+
+[K[A[K[AProgress  66%|████████████████████████████▍              |  ETA: 0:00:57[K
+   Progress: Solving step 108/163 (65.64% of time interval complete)[K
+      Stats: 238 iterations in 108.59 s (456.25 ms each)[K[A[A
+
+[K[A[K[AProgress  66%|████████████████████████████▋              |  ETA: 0:00:56[K
+   Progress: Solving step 109/163 (66.27% of time interval complete)[K
+      Stats: 241 iterations in 109.76 s (455.45 ms each)[K[A[A
+
+[K[A[K[AProgress  67%|████████████████████████████▉              |  ETA: 0:00:55[K
+   Progress: Solving step 110/163 (66.90% of time interval complete)[K
+      Stats: 244 iterations in 111.01 s (454.95 ms each)[K[A[A
+
+[K[A[K[AProgress  68%|█████████████████████████████▏             |  ETA: 0:00:54[K
+   Progress: Solving step 111/163 (67.53% of time interval complete)[K
+      Stats: 247 iterations in 112.16 s (454.09 ms each)[K[A[A
+
+[K[A[K[AProgress  68%|█████████████████████████████▍             |  ETA: 0:00:53[K
+   Progress: Solving step 112/163 (68.16% of time interval complete)[K
+      Stats: 250 iterations in 113.29 s (453.16 ms each)[K[A[A
+
+[K[A[K[AProgress  69%|█████████████████████████████▋             |  ETA: 0:00:52[K
+   Progress: Solving step 113/163 (68.79% of time interval complete)[K
+      Stats: 253 iterations in 114.49 s (452.52 ms each)[K[A[A
+
+[K[A[K[AProgress  70%|█████████████████████████████▉             |  ETA: 0:00:51[K
+   Progress: Solving step 114/163 (69.42% of time interval complete)[K
+      Stats: 256 iterations in 115.76 s (452.17 ms each)[K[A[A
+
+[K[A[K[AProgress  70%|██████████████████████████████▏            |  ETA: 0:00:50[K
+   Progress: Solving step 115/163 (70.06% of time interval complete)[K
+      Stats: 259 iterations in 117.01 s (451.79 ms each)[K[A[A
+
+[K[A[K[AProgress  71%|██████████████████████████████▍            |  ETA: 0:00:49[K
+   Progress: Solving step 116/163 (70.69% of time interval complete)[K
+      Stats: 262 iterations in 118.18 s (451.06 ms each)[K[A[A
+
+[K[A[K[AProgress  71%|██████████████████████████████▋            |  ETA: 0:00:48[K
+   Progress: Solving step 117/163 (71.32% of time interval complete)[K
+      Stats: 265 iterations in 119.33 s (450.32 ms each)[K[A[A
+
+[K[A[K[AProgress  72%|███████████████████████████████            |  ETA: 0:00:47[K
+   Progress: Solving step 118/163 (71.95% of time interval complete)[K
+      Stats: 268 iterations in 120.54 s (449.78 ms each)[K[A[A
+
+[K[A[K[AProgress  73%|███████████████████████████████▎           |  ETA: 0:00:46[K
+   Progress: Solving step 119/163 (72.58% of time interval complete)[K
+      Stats: 271 iterations in 121.67 s (448.98 ms each)[K[A[A
+
+[K[A[K[AProgress  73%|███████████████████████████████▌           |  ETA: 0:00:45[K
+   Progress: Solving step 120/163 (73.21% of time interval complete)[K
+      Stats: 274 iterations in 122.84 s (448.32 ms each)[K[A[A
+
+[K[A[K[AProgress  74%|███████████████████████████████▊           |  ETA: 0:00:44[K
+   Progress: Solving step 121/163 (73.84% of time interval complete)[K
+      Stats: 277 iterations in 124.07 s (447.91 ms each)[K[A[A
+
+[K[A[K[AProgress  74%|████████████████████████████████           |  ETA: 0:00:43[K
+   Progress: Solving step 122/163 (74.48% of time interval complete)[K
+      Stats: 280 iterations in 125.20 s (447.16 ms each)[K[A[A
+
+[K[A[K[AProgress  75%|████████████████████████████████▎          |  ETA: 0:00:42[K
+   Progress: Solving step 123/163 (75.11% of time interval complete)[K
+      Stats: 283 iterations in 126.34 s (446.44 ms each)[K[A[A
+
+[K[A[K[AProgress  76%|████████████████████████████████▌          |  ETA: 0:00:41[K
+   Progress: Solving step 124/163 (75.74% of time interval complete)[K
+      Stats: 287 iterations in 127.80 s (445.30 ms each)[K[A[A
+
+[K[A[K[AProgress  76%|████████████████████████████████▊          |  ETA: 0:00:41[K
+   Progress: Solving step 125/163 (76.37% of time interval complete)[K
+      Stats: 291 iterations in 129.43 s (444.78 ms each)[K[A[A
+
+[K[A[K[AProgress  77%|█████████████████████████████████          |  ETA: 0:00:40[K
+   Progress: Solving step 126/163 (77.00% of time interval complete)[K
+      Stats: 295 iterations in 130.82 s (443.45 ms each)[K[A[A
+
+[K[A[K[AProgress  77%|█████████████████████████████████▎         |  ETA: 0:00:39[K
+   Progress: Solving step 127/163 (77.63% of time interval complete)[K
+      Stats: 299 iterations in 132.28 s (442.40 ms each)[K[A[A
+
+[K[A[K[AProgress  78%|█████████████████████████████████▌         |  ETA: 0:00:38[K
+   Progress: Solving step 128/163 (78.26% of time interval complete)[K
+      Stats: 303 iterations in 133.74 s (441.38 ms each)[K[A[A
+
+[K[A[K[AProgress  79%|█████████████████████████████████▉         |  ETA: 0:00:37[K
+   Progress: Solved step 163/163[K
+      Stats: 308 iterations in 135.63 s (440.36 ms each)[K[A[A
+
+[K[A[K[AProgress 100%|███████████████████████████████████████████| Time: 0:02:16[K
+╭────────────────┬───────────┬───────────────┬──────────╮
+│ Iteration type │  Avg/step │  Avg/ministep │    Total │
+│                │ 128 steps │ 128 ministeps │ (wasted) │
+├────────────────┼───────────┼───────────────┼──────────┤
+│ Newton         │   2.40625 │       2.40625 │  308 (0) │
+│ Linearization  │   3.40625 │       3.40625 │  436 (0) │
+│ Linear solver  │   2.40625 │       2.40625 │  308 (0) │
+│ Precond apply  │       0.0 │           0.0 │    0 (0) │
+╰────────────────┴───────────┴───────────────┴──────────╯
+╭───────────────┬──────────┬────────────┬──────────╮
+│ Timing type   │     Each │   Relative │    Total │
+│               │       ms │ Percentage │        s │
+├───────────────┼──────────┼────────────┼──────────┤
+│ Properties    │   1.9523 │     0.44 % │   0.6013 │
+│ Equations     │ 198.1355 │    63.69 % │  86.3871 │
+│ Assembly      │   7.7345 │     2.49 % │   3.3722 │
+│ Linear solve  │ 125.4325 │    28.48 % │  38.6332 │
+│ Linear setup  │   0.0000 │     0.00 % │   0.0000 │
+│ Precond apply │   0.0000 │     0.00 % │   0.0000 │
+│ Update        │   3.5724 │     0.81 % │   1.1003 │
+│ Convergence   │   5.1222 │     1.65 % │   2.2333 │
+│ Input/Output  │   1.3841 │     0.13 % │   0.1772 │
+│ Other         │  10.1519 │     2.31 % │   3.1268 │
+├───────────────┼──────────┼────────────┼──────────┤
+│ Total         │ 440.3615 │   100.00 % │ 135.6314 │
+╰───────────────┴──────────┴────────────┴──────────╯

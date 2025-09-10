@@ -8,10 +8,11 @@ using BattMo
 using Logging
 using Jutul
 
+
 include("scripts/webSocket.jl")
 include("scripts/apiDocumentation.jl")
 include("scripts/runSimulation.jl")
-include("scripts/runBattMo.jl")
+# include("scripts/runBattMo.jl")
 include("scripts/hdf5Formatting.jl")
 
 # Initialize lock
@@ -20,9 +21,12 @@ const simulations = Dict{String, Tuple{Task, Condition}}()
 const clients = Dict{UUID, HTTP.WebSockets.WebSocket}()
 
 
-        
-ws_port = 8081
-start_websocket_server(ws_port)
+
+# ws_port = 8081
+# start_websocket_server(ws_port)
+
+ws_port = 8082
+start_websocket_plotting(ws_port)
 
 doc_port = 8080
 start_documentation_server(doc_port)

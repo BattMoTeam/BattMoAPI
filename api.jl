@@ -1,3 +1,4 @@
+ENV["Browser"] = "true"
 using HTTP
 using HTTP.WebSockets
 using UUIDs
@@ -7,6 +8,7 @@ using Base.Threads: ReentrantLock, lock, unlock, @async, wait, Condition
 using BattMo
 using Logging
 using Jutul
+using WGLMakie
 
 
 include("scripts/webSocket.jl")

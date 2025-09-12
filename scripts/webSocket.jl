@@ -168,27 +168,66 @@ end
 
 function run_test(ws::Union{WebSocket, Nothing} = nothing)
 
+	WebSockets.send(ws, "Setting up Simulation")
 
-	cell_parameters     = load_cell_parameters(; from_default_set = "Chen2020")
-	cycling_protocol    = load_cycling_protocol(; from_default_set = "CCDischarge")
-	model_settings      = load_model_settings(; from_default_set = "P4D_cylindrical")
-	simulation_settings = load_simulation_settings(; from_default_set = "P4D_cylindrical")
+	cell_parameters  = load_cell_parameters(; from_default_set = "Chen2020")
+	cycling_protocol = load_cycling_protocol(; from_default_set = "CCDischarge")
 
-	# We adjust the parameters so that the simulation in this example is not too long (around a couple of minutes)
+	WebSockets.send(ws, ".")
 
-	cell_parameters["Cell"]["OuterRadius"]                                   = 0.004
-	cell_parameters["NegativeElectrode"]["CurrentCollector"]["TabFractions"] = [0.5]
-	cell_parameters["PositiveElectrode"]["CurrentCollector"]["TabFractions"] = [0.5]
-	cell_parameters["NegativeElectrode"]["CurrentCollector"]["TabWidth"]     = 0.002
-	cell_parameters["PositiveElectrode"]["CurrentCollector"]["TabWidth"]     = 0.002
-	simulation_settings["GridResolutionAngular"]                             = 8
+	model = LithiumIonBattery()
+	WebSockets.send(ws, "..")
 
-	model = LithiumIonBattery(; model_settings)
-	sim = Simulation(model, cell_parameters, cycling_protocol; simulation_settings)
+	sim = Simulation(model, cell_parameters, cycling_protocol)
+
+	WebSockets.send(ws, "Simulation has started")
+	@info "Simulation started"
 	output = solve(sim; info_level = -1)
+	@info "Simulation finished"
+	WebSockets.send(ws, "Simulation has finished")
+	# Create interactive plot (WebGL based)
+	try
+		# --- Create dashboard figure ---
+		fig = plot_dashboard(output; plot_type = "line")
+
+		# --- Export to self-contained HTML ---
+		html_dir = joinpath(@__DIR__, "..", "results")
+		isdir(html_dir) || mkdir(html_dir)
+		html_path = joinpath(html_dir, "dashboard_$(user_id).html")
+
+		open(html_path, "w") do io
+			println(
+				io,
+				"""
+				<html>
+				<head></head>
+				<body>
+				""",
+			)
+			Page(exportable = true, offline = true)   # embed WGLMakie JS
+			show(io, MIME"text/html"(), fig)      # insert figure
+			println(
+				io,
+				"""
+				</body>
+				</html>
+				""",
+			)
+		end
 
 
-	plot_interactive_3d(output; colormap = :curl)
+	catch e
+		WebSockets.send(ws, "Error: $e")
+	end
+	# Send HTML to frontend via WebSocket
+	if ws !== nothing && !ws.writeclosed
+		# This URL should map to a route served by your API container
+		WebSockets.send(ws, JSON.json(Dict(
+			"type" => "dashboard_ready",
+			"url" => "/results/dashboard_$(user_id).html",
+		)))
+	end
+
 	return true
 
 end

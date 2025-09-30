@@ -7,7 +7,9 @@ Pkg.add("JSON")
 Pkg.add("HDF5")
 Pkg.add("PackageCompiler")
 Pkg.add("UUIDs")
+Pkg.add("Arrow")
+Pkg.add("Tables")
 
 
-using HTTP, BattMo, JSON, Jutul, UUIDs, HDF5, PackageCompiler
+using HTTP, BattMo, JSON, Jutul, UUIDs, HDF5, PackageCompiler, Arrow, Tables
 Pkg.precompile()

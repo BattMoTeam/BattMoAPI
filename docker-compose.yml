@@ -10,7 +10,7 @@ services:
     restart: always
     ports:
       - "8081:8081"
-      - "8080:8082"
+      - "8080:8080"
     volumes:
       - ./scripts:/api/scripts
       - ./api.jl:/api/api.jl
@@ -21,17 +21,6 @@ services:
     networks:
       - app-network
     command: julia --project=. -e 'include("api.jl")'
-
-
-  gui:
-    image: ghcr.io/battmoteam/battmoapp_gui:latest
-    container_name: battmo_gui
-    restart: always
-    ports:
-      - "8501:8501"
-    networks:
-      - app-network
-    command: streamlit run app.py --global.disableWidgetStateDuplicationWarning true --server.port=8501
 
 
 networks:

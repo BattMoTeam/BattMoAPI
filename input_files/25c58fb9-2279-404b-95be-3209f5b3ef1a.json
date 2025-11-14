@@ -1,0 +1,209 @@
+{
+   "BaseModel": "LithiumIonBattery",
+   "Metadata": {
+      "Description": "Parameter set of a cylindrical 21700 commercial cell (LGM50), for an electrochemical pseudo-two-dimensional (P2D) model, after calibration. SEI parameters are from Bolay2022: https://doi.org/10.1016/j.powera.2022.100083 .",
+      "Source": "https://doi.org/10.1149/1945-7111/ab9050",
+      "Title": "chen_2020"
+   },
+   "CyclingProtocol": {
+      "TotalNumberOfCycles": 0,
+      "InitialControl": "discharging",
+      "InitialStateOfCharge": 0.99,
+      "DRate": 0.5,
+      "LowerVoltageLimit": 2.4,
+      "Protocol": "CC",
+      "UpperVoltageLimit": 4.1
+   },
+   "SimulationSettings": {
+      "PositiveElectrodeCoatingGridPoints": 10,
+      "SeparatorGridPoints": 3,
+      "TimeStepDuration": 50,
+      "NegativeElectrodeCoatingGridPoints": 10,
+      "PositiveElectrodeParticleGridPoints": 10,
+      "RampUpTime": 10,
+      "RampUpSteps": 5,
+      "NegativeElectrodeParticleGridPoints": 10
+   },
+   "ModelSettings": {
+      "ButlerVolmer": "Standard",
+      "RampUp": "Sinusoidal",
+      "PotentialFlowDiscretization": "GeneralAD",
+      "TransportInSolid": "FullDiffusion",
+      "ModelFramework": "P2D"
+   },
+   "CellParameters": {
+      "Electrolyte": {
+         "TransferenceNumber": 0.2594,
+         "Description": "1 mol/l LiPF6 with ethylene carbonate (EC): ethyl methyl carbonate (EMC) (3:7, V:V)",
+         "DiffusionCoefficient": "8.794*10^(-11)*(c/1000)^2 - 3.972*10^(-10)*(c/1000) + 4.862*10^(-10)",
+         "IonicConductivity": "0.1297*(c/1000)^3 - 2.51*(c/1000)^(1.5) + 3.329*(c/1000)",
+         "Density": 1200,
+         "ChargeNumber": 1,
+         "Concentration": 1000
+      },
+      "Cell": {
+         "NominalVoltage": 3.71,
+         "InnerRadius": 0.002,
+         "ElectrodeGeometricSurfaceArea": 0.1027,
+         "Height": 0.065,
+         "NominalCapacity": 4.8,
+         "Name": "LG INR 21700 M50",
+         "Case": "Cylindrical",
+         "OuterRadius": 0.021
+      },
+      "PositiveElectrode": {
+         "ActiveMaterial": {
+            "ActivationEnergyOfDiffusion": 5000,
+            "NumberOfElectronsTransfered": 1,
+            "StoichiometricCoefficientAtSOC0": 0.9084,
+            "OpenCircuitPotential": "-0.8090 * (c/cmax) + 4.4875 - 0.0428 * tanh(18.5138*((c/cmax) - 0.5542)) - 17.7326 * tanh(15.7890*((c/cmax) - 0.3117)) + 17.5842 * tanh(15.9308*((c/cmax) - 0.3120))",
+            "ReactionRateConstant": 3.545e-11,
+            "MassFraction": 1.0,
+            "StoichiometricCoefficientAtSOC100": 0.27,
+            "ActivationEnergyOfReaction": 17800.0,
+            "MaximumConcentration": 63104.0,
+            "VolumetricSurfaceArea": 383959.0,
+            "Description": "NMC811",
+            "DiffusionCoefficient": 4.0e-15,
+            "ParticleRadius": 5.22e-6,
+            "Density": 4950,
+            "ElectronicConductivity": 0.18,
+            "ChargeTransferCoefficient": 0.5
+         },
+         "Binder": {
+            "Description": "Unknown",
+            "MassFraction": 0.0,
+            "Density": 1780.0,
+            "ElectronicConductivity": 100
+         },
+         "Coating": {
+            "BruggemanCoefficient": 1.5,
+            "EffectiveDensity": 3292,
+            "Thickness": 7.56e-5
+         },
+         "CurrentCollector": {
+            "Description": "Aluminum",
+            "TabFractions": [
+               0.5
+            ],
+            "TabWidth": 0.001,
+            "Thickness": 1.63e-5,
+            "Density": 2700,
+            "ElectronicConductivity": 5.96e7
+         },
+         "ConductiveAdditive": {
+            "Description": "Unknown",
+            "MassFraction": 0.0,
+            "Density": 1800.0,
+            "ElectronicConductivity": 100
+         }
+      },
+      "Separator": {
+         "Description": "Ceramic-coated Polyolefin",
+         "Density": 946,
+         "BruggemanCoefficient": 1.5,
+         "Thickness": 1.2e-5,
+         "Porosity": 0.47
+      },
+      "NegativeElectrode": {
+         "Interphase": {
+            "Description": "EC-based SEI, from Bolay2022.",
+            "ElectronicDiffusionCoefficient": 1.6e-12,
+            "InterstitialConcentration": 0.015,
+            "InitialThickness": 1.0e-8,
+            "IonicConductivity": 1.0e-5,
+            "StoichiometricCoefficient": 2,
+            "InitialPotentialDrop": 0.5,
+            "MolarVolume": 9.586e-5
+         },
+         "ActiveMaterial": {
+            "ActivationEnergyOfDiffusion": 5000,
+            "NumberOfElectronsTransfered": 1,
+            "StoichiometricCoefficientAtSOC0": 0.0279,
+            "OpenCircuitPotential": "1.9793 * exp(-39.3631*(c/cmax)) + 0.2482 - 0.0909 * tanh(29.8538*((c/cmax) - 0.1234)) - 0.04478 * tanh(14.9159*((c/cmax) - 0.2769)) - 0.0205 * tanh(30.4444*((c/cmax) - 0.6103))",
+            "ReactionRateConstant": 6.716e-12,
+            "MassFraction": 1.0,
+            "StoichiometricCoefficientAtSOC100": 0.9014,
+            "ActivationEnergyOfReaction": 35000,
+            "MaximumConcentration": 33133.0,
+            "VolumetricSurfaceArea": 383959.0,
+            "Description": "Graphite-SiOx",
+            "DiffusionCoefficient": 3.3e-14,
+            "ParticleRadius": 5.86e-6,
+            "Density": 2260.0,
+            "ElectronicConductivity": 215,
+            "ChargeTransferCoefficient": 0.5
+         },
+         "Binder": {
+            "Description": "Unknown",
+            "MassFraction": 0.0,
+            "Density": 1100.0,
+            "ElectronicConductivity": 100.0
+         },
+         "Coating": {
+            "BruggemanCoefficient": 1.5,
+            "EffectiveDensity": 1695,
+            "Thickness": 8.52e-5
+         },
+         "CurrentCollector": {
+            "Description": "Copper",
+            "TabFractions": [
+               0.5
+            ],
+            "TabWidth": 0.001,
+            "Thickness": 1.17e-5,
+            "Density": 8960,
+            "ElectronicConductivity": 3.55e7
+         },
+         "ConductiveAdditive": {
+            "Description": "Unknown",
+            "MassFraction": 0.0,
+            "Density": 1950.0,
+            "ElectronicConductivity": 100.0
+         }
+      }
+   },
+   "SolverSettings": {
+      "NonLinearSolver": {
+         "TimeStepSelectors": "TimestepSelector",
+         "AlwaysUpdateSecondary": false,
+         "CheckBeforeSolve": true,
+         "MaxNonLinearIterations": 20,
+         "MaxResidual": 1.0e20,
+         "MaxTimestep": 1.0e12,
+         "TimestepMaxDecrease": 0.1,
+         "FailureCutsTimesteps": true,
+         "Relaxation": "NoRelaxation",
+         "MinNonLinearIterations": 1,
+         "TimestepMaxIncrease": 10.0,
+         "TolFactorFinalIteration": 1.0,
+         "SafeMode": true,
+         "ExtraTiming": false,
+         "MaxTimestepCuts": 10,
+         "CuttingCriterion": null,
+         "Tolerances": {},
+         "ErrorOnIncomplete": false
+      },
+      "Verbose": {
+         "ProgressGlyphs": "default",
+         "DebugLevel": 0,
+         "EndReport": null,
+         "ASCIITerminal": false,
+         "InfoLevel": 0,
+         "ProgressColor": "green",
+         "ID": ""
+      },
+      "Output": {
+         "ReportLevel": 0,
+         "OutputStates": true,
+         "OutputReports": true,
+         "OutputPath": "",
+         "OutputSubstrates": false,
+         "InMemoryReports": 10
+      },
+      "LinearSolver": {
+         "Method": "Direct",
+         "MaxSize": 1000000
+      }
+   }
+}

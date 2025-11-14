@@ -11,42 +11,51 @@ function handle_ws_client(ws::HTTP.WebSockets.WebSocket)
 	@info "Client connected: $client_id"
 
 	try
-		while !HTTP.WebSockets.closed(ws)
-			msg = String(take!(ws))
-			data = JSON.parse(msg)
+		if !ws.writeclosed
+			for msg in ws
+				if msg === nothing
+					break  # Exit the loop if no message is received (end of stream)
+				end
+				data = JSON.parse(msg)
 
-			response = nothing
+				response = nothing
 
-			if data["type"] == "get_default_sets"
-				response = get_default_sets_for_client()
-			elseif data["type"] == "get_equilibrium_kpis"
-				response = get_equilibrium_kpis(data["params"])
-			elseif data["type"] == "run_simulation"
-				response = run_simulation_task(data["params"])
-			elseif data["type"] == "plot"
-				response = spawn_plot_server(data["params"])
-			else
-				response = Dict("error" => "Unknown request type")
+				if data["type"] == "get_default_sets"
+					WebSockets.send(ws, "UUID: $client_id")
+					response = @async get_default_sets_from_battmo()
+				elseif data["type"] == "get_equilibrium_kpis"
+					WebSockets.send(ws, "UUID: $client_id")
+					response = @async get_equilibrium_kpis_from_battmo(data["params"])
+				elseif data["type"] == "run_simulation"
+					WebSockets.send(ws, "UUID: $client_id")
+					response = @async run_simulation_task(data["params"], ws)
+				else
+					response = Dict("error" => "Unknown request type")
+				end
+
 			end
-
-			HTTP.WebSockets.send(ws, JSON.json(response))
 		end
+
 	catch e
 		@error "Client $client_id disconnected with error: $e"
 	finally
 		delete!(clients, client_id)
 		@info "Client disconnected: $client_id"
+
+		if !ws.writeclosed
+			WebSockets.close(ws)
+		end
 	end
 end
 
 # -------------------------
-# Start WebSocket server
+# Start server
 # -------------------------
-function start_websocket_server(port::Int)
-	@info "Starting WebSocket server on port $port"
-	HTTP.serve(HTTP.Handlers.RequestHandler() do req::HTTP.Request
-			HTTP.WebSockets.upgrade(req) do ws
-				handle_ws_client(ws)
-			end
-		end, port = 8081)
+
+function start_websocket_server(ws_port::Int)
+	HTTP.WebSockets.listen!("0.0.0.0", ws_port) do ws
+		handle_ws_client(ws)
+	end
 end
+
+

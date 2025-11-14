@@ -3,7 +3,7 @@
 # Get default sets
 # -------------------------
 
-function get_default_sets_for_client()
+function get_default_sets_from_battmo()
 	dest = generate_default_parameter_files(tempname(); print = false, force = true)
 	files = filter(f -> endswith(f, ".json"), readdir(dest, join = true))
 	result = Dict()
@@ -11,6 +11,8 @@ function get_default_sets_for_client()
 		json_data = JSON.parse(read(f, String))
 		result[basename(f)] = json_data
 	end
+
+	WebSockets.send(ws, JSON.json(result))
 	return result
 end
 
@@ -19,9 +21,10 @@ end
 # Calculate KPIs
 # -------------------------
 
-function get_equilibrium_kpis(parameters)
+function get_equilibrium_kpis_from_battmo(parameters)
 	cell_parameters = CellParameters(parameters)
 	cell_kpis_from_set = get_equilibrium_kpis(cell_parameters)
+	WebSockets.send(ws, JSON.json(cell_kpis_from_set))
 	return cell_kpis_from_set
 
 end
@@ -39,17 +42,7 @@ function run_simulation_task(params, ws::HTTP.WebSockets.WebSocket)
 			progress = 0.0
 			result = nothing
 			try
-				# Example: simulate progress
-				for step in 1:10
-					sleep(0.5)  # simulate computation
-					progress = step / 10
-					HTTP.WebSockets.send(ws, JSON.json(Dict(
-						"type" => "simulation_progress",
-						"task_id" => id,
-						"progress" => progress,
-					)))
-				end
-				# Run actual simulation
+
 				output = run_simulation(FullSimulationInput(params))
 
 				result = format_output_arrow(ouput)

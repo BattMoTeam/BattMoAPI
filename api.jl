@@ -30,5 +30,10 @@ const clients = Dict{UUID, HTTP.WebSockets.WebSocket}()
 ws_port = 8080
 @async start_websocket_server(ws_port)
 
+
+# Prevent exit
+wait(Condition())
+
+
 doc_port = 8081
-start_documentation_server(doc_port)
+# start_documentation_server(doc_port)

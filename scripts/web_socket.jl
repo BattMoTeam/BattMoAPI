@@ -44,7 +44,7 @@ function register_client(ws::WebSocket)
 				end
 				try
 					# if writeclosed, sending will throw; handle exceptions to cleanup
-					WebSockets.send(ws, msg)
+					WebSockets.send(ws, JSON.json(msg))
 				catch e
 					@warn "Failed sending to client $id: $e"
 					# allow outer code to cleanup
@@ -233,7 +233,10 @@ function handle_websocket(ws::WebSocket)
 	conn = register_client(ws)
 	client_id_str = string(conn.id)
 	# send client their id
-	safe_send(conn, "UUID: $client_id_str")
+	safe_send(conn, JSON.json(Dict(
+		"type" => "client_id",
+		"UUID" => "$client_id_str",
+	)))
 
 	try
 		for raw_msg in ws

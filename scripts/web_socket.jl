@@ -1,7 +1,7 @@
 # websocket_server.jl
 #
 # Robust multi-client WebSocket server.
-# - Each client gets a ClientConn struct
+# - Each client gets a ClientConnection struct
 # - Each client has a dedicated send-channel + send-loop to serialize sends
 # - Simulation runs in an @async Task stored per-client and is cancelled on disconnect
 #
@@ -11,17 +11,18 @@
 # Types & global state
 # -----------------------
 
-struct ClientConn
+struct ClientConnection
 	id::UUID
 	ws::WebSocket
 	connected_at::Dates.DateTime
 	last_activity::Dates.DateTime
-	send_chan::Channel{Union{String, Vector{UInt8}, Nothing}}   # push Strings to send; push `nothing` to stop loop
-	send_task::Task                                # the task responsible for sending from send_chan
+	send_channel::Channel{Union{String, Vector{UInt8}, Nothing}}   # push Strings to send; push `nothing` to stop loop
+	send_task::Task                                # the task responsible for sending from send_channel
 	sim_task::Union{Nothing, Task}                 # running simulation task (if any)
+	kpi_task::Union{Nothing, Task}                 # calculating KPIs task (if any)
 end
 
-const clients = Dict{UUID, ClientConn}()
+const clients = Dict{UUID, ClientConnection}()
 const clients_lock = ReentrantLock()
 
 # -----------------------
@@ -65,7 +66,7 @@ function register_client(ws::WebSocket)
 		end
 	end
 
-	conn = ClientConn(id, ws, now(), now(), ch, send_t, nothing)
+	conn = ClientConnection(id, ws, now(), now(), ch, send_t, nothing)
 
 	lock(clients_lock) do
 		clients[id] = conn
@@ -76,14 +77,14 @@ function register_client(ws::WebSocket)
 end
 
 # Unregister and cleanup client: stop send-loop, cancel sim task, remove from dict
-function unregister_client(conn::ClientConn)
+function unregister_client(conn::ClientConnection)
 	id = conn.id
 	@info "Unregistering client: $id"
 
 	# signal the send-loop to stop by pushing `nothing` (if channel still open)
 	try
-		if isopen(conn.send_chan)
-			put!(conn.send_chan, nothing)
+		if isopen(conn.send_channel)
+			put!(conn.send_channel, nothing)
 		end
 	catch e
 		@warn "Error signaling send-loop for $id: $e"
@@ -115,10 +116,10 @@ end
 
 # Safe send: pushes a message (String or Vector{UInt8}) into the client's send-channel
 # Returns true if queued successfully, false otherwise.
-function safe_send(conn::ClientConn, msg)::Bool
+function safe_send(conn::ClientConnection, msg)::Bool
 	try
-		if isopen(conn.send_chan)
-			put!(conn.send_chan, msg)
+		if isopen(conn.send_channel)
+			put!(conn.send_channel, msg)
 			return true
 		else
 			return false
@@ -129,7 +130,7 @@ function safe_send(conn::ClientConn, msg)::Bool
 	end
 end
 
-# Helper to find client by UUID (string form) — returns ClientConn or nothing
+# Helper to find client by UUID (string form) — returns ClientConnection or nothing
 function get_client_by_uuid_str(uuid_str::String)
 	try
 		id = UUID(uuid_str)
@@ -148,79 +149,6 @@ function truncated_error(e; max_lines = 20)
 		return join(vcat(lines[1:max_lines], ["..."]), '\n')
 	else
 		return string(e)
-	end
-end
-
-# -----------------------
-# Simulation example
-# -----------------------
-# Adapt this to your real simulation implementation. The important bits:
-# - Periodically push progress updates via safe_send(conn, msg)
-# - Check for early termination (e.g., client closed) and handle InterruptException
-#
-function run_simulation_task(sim_input::Dict, conn::ClientConn)
-	try
-		@info "Starting simulation for client $(conn.id) with input $(sim_input)"
-
-		# Run your simulation
-		output = run_simulation(FullSimulationInput(sim_input));
-		output_hdf5 = format_output_hdf5(output);  # Vector{UInt8}
-
-		# Update activity
-		lock(clients_lock) do
-			if haskey(clients, conn.id)
-				c = clients[conn.id]
-				clients[conn.id] = ClientConn(
-					c.id, c.ws, c.connected_at, now(),
-					c.send_chan, c.send_task, c.sim_task,
-				)
-			end
-		end
-
-		# 1) Send header JSON
-		header = JSON.json(Dict(
-			"type" => "hdf5",
-			"format" => "hdf5-ipc-stream",
-			"length" => length(output_hdf5),
-			"status" => "finished",
-		))
-
-		safe_send(conn, header)
-
-		# 2) Send raw HDF5 bytes as BINARY WebSocket frame
-		ok = safe_send(conn, output_hdf5)
-		if !ok
-			@warn "Client $(conn.id) probably disconnected before receiving HDF5 output"
-			return
-		end
-
-		@info "Sent HDF5 result to client $(conn.id)"
-
-	catch e
-		if isa(e, InterruptException)
-			@info "Simulation for client $(conn.id) interrupted/cancelled."
-			try
-				safe_send(conn, JSON.json(Dict("type"=>"result", "status"=>"cancelled")))
-			catch _
-			end
-		else
-			@error "Simulation error for client $(conn.id): $(truncated_error(e))"
-			try
-				safe_send(conn, JSON.json(Dict("type"=>"result", "status"=>"error", "error"=>string(e))))
-			catch _
-			end
-		end
-	finally
-		# Clear sim_task if still registered
-		lock(clients_lock) do
-			if haskey(clients, conn.id)
-				c = clients[conn.id]
-				clients[conn.id] = ClientConn(
-					c.id, c.ws, c.connected_at, now(),
-					c.send_chan, c.send_task, nothing,
-				)
-			end
-		end
 	end
 end
 
@@ -250,7 +178,7 @@ function handle_websocket(ws::WebSocket)
 			lock(clients_lock) do
 				if haskey(clients, conn.id)
 					c = clients[conn.id]
-					clients[conn.id] = ClientConn(c.id, c.ws, c.connected_at, now(), c.send_chan, c.send_task, c.sim_task)
+					clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task)
 				end
 			end
 
@@ -279,7 +207,7 @@ function handle_websocket(ws::WebSocket)
 					lock(clients_lock) do
 						if haskey(clients, conn.id)
 							c = clients[conn.id]
-							clients[conn.id] = ClientConn(c.id, c.ws, c.connected_at, now(), c.send_chan, c.send_task, t)
+							clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, t, c.kpi_task)
 						end
 					end
 					safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"started simulation")))
@@ -297,6 +225,18 @@ function handle_websocket(ws::WebSocket)
 				else
 					safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"no simulation to cancel")))
 				end
+
+			elseif haskey(parsed, "task") && parsed["task"] == "calculate_equilibrium_kpis"
+				input = get(parsed, "data", Dict())
+				t = @async calculate_equilibrium_kpis_task(input, conn)
+				# update client record with sim_task
+				lock(clients_lock) do
+					if haskey(clients, conn.id)
+						c = clients[conn.id]
+						clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task, t)
+					end
+				end
+				safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"calculating equilibrium KPIs")))
 
 			else
 				# Unknown message - echo or error

@@ -20,6 +20,7 @@ struct ClientConnection
 	send_task::Task                                # the task responsible for sending from send_channel
 	sim_task::Union{Nothing, Task}                 # running simulation task (if any)
 	kpi_task::Union{Nothing, Task}                 # calculating KPIs task (if any)
+	meta_task::Union{Nothing, Task}                 # getting meta data task (if any)
 end
 
 const clients = Dict{UUID, ClientConnection}()
@@ -44,8 +45,14 @@ function register_client(ws::WebSocket)
 					break
 				end
 				try
-					# if writeclosed, sending will throw; handle exceptions to cleanup
-					WebSockets.send(ws, JSON.json(msg))
+					# Send text or binary as-is; callers provide JSON-serialized strings for text.
+					if msg isa String
+						WebSockets.send(ws, msg)
+					elseif msg isa Vector{UInt8}
+						WebSockets.send(ws, msg)
+					else
+						@warn "Unsupported websocket message type for client $id: $(typeof(msg))"
+					end
 				catch e
 					@warn "Failed sending to client $id: $e"
 					# allow outer code to cleanup
@@ -66,7 +73,7 @@ function register_client(ws::WebSocket)
 		end
 	end
 
-	conn = ClientConnection(id, ws, now(), now(), ch, send_t, nothing)
+	conn = ClientConnection(id, ws, now(), now(), ch, send_t, nothing, nothing, nothing)
 
 	lock(clients_lock) do
 		clients[id] = conn
@@ -178,7 +185,7 @@ function handle_websocket(ws::WebSocket)
 			lock(clients_lock) do
 				if haskey(clients, conn.id)
 					c = clients[conn.id]
-					clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task)
+					clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task, c.kpi_task, c.meta_task)
 				end
 			end
 
@@ -207,7 +214,7 @@ function handle_websocket(ws::WebSocket)
 					lock(clients_lock) do
 						if haskey(clients, conn.id)
 							c = clients[conn.id]
-							clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, t, c.kpi_task)
+							clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, t, c.kpi_task, c.meta_task)
 						end
 					end
 					safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"started simulation")))
@@ -233,10 +240,21 @@ function handle_websocket(ws::WebSocket)
 				lock(clients_lock) do
 					if haskey(clients, conn.id)
 						c = clients[conn.id]
-						clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task, t)
+						clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task, t, c.meta_task)
 					end
 				end
 				safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"calculating equilibrium KPIs")))
+
+			elseif haskey(parsed, "task") && parsed["task"] == "get_meta_data"
+				t = @async get_meta_data(conn)
+				# update client record with sim_task
+				lock(clients_lock) do
+					if haskey(clients, conn.id)
+						c = clients[conn.id]
+						clients[conn.id] = ClientConnection(c.id, c.ws, c.connected_at, now(), c.send_channel, c.send_task, c.sim_task, c.kpi_task, t)
+					end
+				end
+				safe_send(conn, JSON.json(Dict("type"=>"info", "message"=>"Retrieving meta data")))
 
 			else
 				# Unknown message - echo or error
@@ -275,3 +293,5 @@ end
 if abspath(PROGRAM_FILE) == @__FILE__
 	start_websocket_server(8080)
 end
+
+

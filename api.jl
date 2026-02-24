@@ -12,9 +12,8 @@ using Dates
 
 include("scripts/format_output.jl")
 include("scripts/web_socket.jl")
+include("scripts/tasks.jl")
 include("scripts/documentation.jl")
-
-# include("scripts/tasks.jl")
 
 
 
@@ -23,3 +22,7 @@ start_websocket_server(ws_port)
 
 doc_port = 8081
 start_documentation_server(doc_port)
+
+
+
+
